@@ -1,62 +1,63 @@
 CREATE TABLE Class (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   level int,
   hitdie int,
   saving_throw_1 int,
   saving_throw_2 int,
   skill_qty int,
-  is_spellcaster bool
+  is_spellcaster bit
 );
 
 CREATE TABLE Race (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
+  name nvarchar(50),
   speed int,
   size nvarchar(50)
 );
 
 CREATE TABLE Racial_abilities (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   race_id int,
   ability_1 int,
   ability_2 int
 );
 
 CREATE TABLE Abilities (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Languages (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Racial_languages (
-  id int PRIMARY KEY,
-  language_id int,
+  id int PRIMARY KEY IDENTITY(1,1),
+  language_id int, 
   race_id int
 );
 
 CREATE TABLE Racial_feats (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   description nvarchar(50),
   race_id int
 );
 
 CREATE TABLE Skills (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Tools (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Background (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   equipment nvarchar(50),
   languages_qty int,
@@ -64,20 +65,20 @@ CREATE TABLE Background (
 );
 
 CREATE TABLE Background_proficiencies (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   tool_id int,
   skill_id int,
   background_id int
 );
 
 CREATE TABLE Class_skill_pool (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   class_id int,
   skill_id int
 );
 
 CREATE TABLE Weapon (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   type int,
   range int,
@@ -88,31 +89,31 @@ CREATE TABLE Weapon (
 );
 
 CREATE TABLE Weapon_type (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Weapon_range (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Armor (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   armor_class int,
   str_req int,
-  stealth_dis bool,
+  stealth_dis bit,
   type int
 );
 
 CREATE TABLE Armor_type (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50)
 );
 
 CREATE TABLE Class_proficiencies (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   class_id int,
   armor_id int,
   weapon_type_id int,
@@ -120,24 +121,24 @@ CREATE TABLE Class_proficiencies (
 );
 
 CREATE TABLE Spells (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   casting_time nvarchar(50),
   range int,
   components nvarchar(50),
   duration nvarchar(50),
   school nvarchar(50),
-  concentration bool
+  concentration bit
 );
 
 CREATE TABLE Class_spells (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   class_id int,
   spell_id int
 );
 
 CREATE TABLE Class_features (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   class_id int,
   name nvarchar(50),
   description nvarchar(50),
@@ -145,7 +146,7 @@ CREATE TABLE Class_features (
 );
 
 CREATE TABLE Optional_features (
-  id int PRIMARY KEY,
+  id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
   prerequisite nvarchar(50),
   type nvarchar(50),
@@ -177,7 +178,7 @@ ALTER TABLE Background_proficiencies ADD FOREIGN KEY (background_id) REFERENCES 
 
 ALTER TABLE Class_skill_pool ADD FOREIGN KEY (class_id) REFERENCES Class (id);
 
-ALTER TABLE Skills ADD FOREIGN KEY (id) REFERENCES Class_skill_pool (skill_id);
+ALTER TABLE Class_skill_pool ADD FOREIGN KEY (skill_id) REFERENCES Skills (id);
 
 ALTER TABLE Weapon ADD FOREIGN KEY (type) REFERENCES Weapon_type (id);
 
