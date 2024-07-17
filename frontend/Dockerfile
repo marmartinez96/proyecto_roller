@@ -2,8 +2,12 @@ FROM node:17-alpine as builder
 WORKDIR /app
 
 COPY package*.json .
-CMD ["npm","install"] 
 COPY . .
+
+RUN rm -rf node_modules
+RUN rm -rf package-lock.json
+
+RUN npm install
 
 EXPOSE 3000
 CMD ["npm","start"]

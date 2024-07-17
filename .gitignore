@@ -1,5 +1,7 @@
+\database\data
 
-/sql_data
 /database/data
 /database/data
-/database/data
+database/data/Roll_play_log.ldf
+*.ldf
+*.mdf
