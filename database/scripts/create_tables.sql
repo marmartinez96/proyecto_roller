@@ -73,7 +73,9 @@ CREATE TABLE Background_proficiencies (
   id int PRIMARY KEY IDENTITY(1,1),
   tool_id int,
   skill_id int,
-  background_id int
+  background_id int,
+  tool_cat int,
+  laguage bit
 );
 
 CREATE TABLE Class_skill_pool (
@@ -208,3 +210,5 @@ ALTER TABLE Class_features ADD FOREIGN KEY (class_id) REFERENCES Class (id);
 ALTER TABLE Optional_features ADD FOREIGN KEY (feature_id) REFERENCES Class_features (id);
 
 ALTER TABLE Tools ADD FOREIGN KEY (tool_type) REFERENCES Tool_type(id)
+
+ALTER TABLE Background_proficiencies ADD FOREIGN KEY (tool_cat) REFERENCES Tool_type(id)
