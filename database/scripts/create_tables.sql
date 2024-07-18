@@ -56,12 +56,17 @@ CREATE TABLE Tools (
   name nvarchar(50)
 );
 
+CREATE TABLE Tool_type (
+  id int PRIMARY KEY IDENTITY(1,1),
+  name nvarchar(50),
+);
+
 CREATE TABLE Background (
   id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
-  equipment nvarchar(50),
+  equipment nvarchar(4000),
   languages_qty int,
-  feature nvarchar(200)
+  feature nvarchar(4000)
 );
 
 CREATE TABLE Background_proficiencies (
@@ -201,3 +206,5 @@ ALTER TABLE Class_spells ADD FOREIGN KEY (spell_id) REFERENCES Spells (id);
 ALTER TABLE Class_features ADD FOREIGN KEY (class_id) REFERENCES Class (id);
 
 ALTER TABLE Optional_features ADD FOREIGN KEY (feature_id) REFERENCES Class_features (id);
+
+ALTER TABLE Tools ADD FOREIGN KEY (tool_type) REFERENCES Tool_type(id)
