@@ -1,2 +1,2 @@
 INSERT INTO Tool_type(name)
-VALUES ('Tool'),('Artisan Tool'),('Gaming Set'),('Instrument')
+VALUES ('Tool'),('Artisan Tool'),('Gaming Set'),('Instrument'),('Vehicle')

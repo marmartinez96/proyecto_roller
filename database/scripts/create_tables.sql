@@ -1,7 +1,6 @@
 CREATE TABLE Class (
   id int PRIMARY KEY IDENTITY(1,1),
   name nvarchar(50),
-  level int,
   hitdie int,
   saving_throw_1 int,
   saving_throw_2 int,

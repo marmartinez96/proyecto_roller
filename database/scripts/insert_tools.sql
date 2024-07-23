@@ -26,8 +26,8 @@ INSERT INTO [dbo].Tools([name], [tool_type])
 		   ('Tinker"s Tools', 2),
 		   ('Weaver"s Tools', 2),
 		   ('Woodcarver"s Tools', 2),
-		   ('Vehicles (Land)', 3),
-		   ('Vehicles (Water)', 3),
+		   ('Vehicles (Land)', 5),
+		   ('Vehicles (Water)', 5),
 		   ('Bagpipes', 4),
 		   ('Drum', 4),
 		   ('Dulcimer', 4),
@@ -37,5 +37,9 @@ INSERT INTO [dbo].Tools([name], [tool_type])
 		   ('Lyre', 4),
 		   ('Pan Flute', 4),
 		   ('Shawn', 4),
-		   ('Viol', 4)
+		   ('Viol', 4),
+		   ('Dice Set', 3),
+		   ('Dragonchess Set', 3),
+		   ('Playing Card Set', 3),
+		   ('Three-Dragon Ante Set', 3)
 GO
