@@ -5,6 +5,7 @@ CREATE TABLE Class (
   saving_throw_1 int,
   saving_throw_2 int,
   skill_qty int,
+  tool_qty int,
   is_spellcaster bit
 );
 
@@ -19,7 +20,8 @@ CREATE TABLE Racial_abilities (
   id int PRIMARY KEY IDENTITY(1,1),
   race_id int,
   ability_1 int,
-  ability_2 int
+  ability_2 int,
+  special bit
 );
 
 CREATE TABLE Abilities (
@@ -80,7 +82,8 @@ CREATE TABLE Background_proficiencies (
 CREATE TABLE Class_skill_pool (
   id int PRIMARY KEY IDENTITY(1,1),
   class_id int,
-  skill_id int
+  skill_id int,
+  [any] bit
 );
 
 CREATE TABLE Weapon (
