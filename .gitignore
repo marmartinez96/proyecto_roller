@@ -5,3 +5,4 @@
 database/data/Roll_play_log.ldf
 *.ldf
 *.mdf
+/database/data
